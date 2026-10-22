@@ -1,0 +1,25 @@
+[plugin]
+name = "手机眼睛 Phone Eye"
+description = "接收手机拍摄的照片或文字，推送给猫娘，猫娘回复通过 WebSocket 实时推回手机端。让你出门在外也能随时和住在电脑里的猫娘分享眼前的世界。"
+short_description = "Phone <-> N.E.K.O vision & chat bridge."
+keywords = ["手机", "拍照", "phone", "camera", "photo", "眼睛", "vision", "chat", "聊天"]
+version = "0.2.0"
+id = "phone_eye"
+entry = "plugin.plugins.phone_eye:PhoneEyePlugin"
+
+[plugin.author]
+name = "User"
+
+[plugin.sdk]
+recommended = ">=0.1.0,<0.2.0"
+supported = ">=0.1.0,<0.3.0"
+
+[plugin_runtime]
+enabled = true
+auto_start = true
+
+[phone_eye]
+# HTTP/WebSocket 监听端口：手机（局域网或经内网穿透）向这个端口 POST 图片/文字、WS 订阅回复
+port = 48930
+# 简单鉴权令牌：手机请求头需带 X-Neko-Token: <token>；留空则不做鉴权（仅限可信网络）
+token = ""
